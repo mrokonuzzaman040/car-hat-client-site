@@ -71,8 +71,8 @@ const router = createBrowserRouter([
       },
       {
         path: '/updateCar/:id',
-        element: <PrivetRout><UpdateDetails></UpdateDetails></PrivetRout>,
-        loader: ({ params }) => fetch(`https://car-hat-server-m8fcq7q3q-md-rokon-uzzamans-projects.vercel.app/cars${params.id}`).then((res) => res.json()),
+        element: <UpdateDetails></UpdateDetails>,
+        loader: ({ params }) => fetch(`https://car-hat-server-m8fcq7q3q-md-rokon-uzzamans-projects.vercel.app/cars/${params.id}`),
       },
       {
         path: '/bmw',
