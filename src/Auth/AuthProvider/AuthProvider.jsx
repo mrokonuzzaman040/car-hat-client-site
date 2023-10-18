@@ -1,0 +1,77 @@
+import { createContext, useEffect, useState } from "react";
+import { createUserWithEmailAndPassword, updateProfile, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import app from '../Firebase/firebase.config';
+
+export const AuthContex = createContext(null);
+const auth = getAuth(app);
+
+
+const AuthProvider = ({ children }) => {
+    const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
+
+    //create user with google
+    const googleProvider = new GoogleAuthProvider();
+    const signInWithGoogle = () => {
+        setLoading(true);
+        return signInWithPopup(auth, googleProvider);
+    }
+
+    // Create User
+    const createUser = (email, password) => {
+        setLoading(true);
+        return createUserWithEmailAndPassword(auth, email, password);
+    }
+
+    //login user
+    const loginUser = (email, password) => {
+        setLoading(true);
+        return signInWithEmailAndPassword(auth, email, password);
+    }
+
+    //user state change
+    useEffect(() => {
+        const unSubscribe = onAuthStateChanged(auth, (user) => {
+            if (user) {
+                setUser(user);
+            } else {
+                setUser(null);
+            }
+            setLoading(false);
+        });
+        return () => unSubscribe();
+    }, []);
+
+    //user logout
+    const logoutUser = () => {
+        setLoading(true);
+        return signOut(auth);
+    }
+
+    //update profile
+    const upDateProfile = (name, photo) => {
+        setLoading(true);
+        return updateProfile(auth.currentUser, {
+            displayName: name,
+            photoURL: photo
+        });
+    }
+
+    const authInfo = {
+        user,
+        createUser,
+        upDateProfile,
+        loginUser,
+        logoutUser,
+        loading,
+        signInWithGoogle,
+    }
+
+    return (
+        <AuthContex.Provider value={authInfo}>
+            {children}
+        </AuthContex.Provider>
+    );
+};
+
+export default AuthProvider;
