@@ -6,6 +6,12 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+
+// import {
+//   QueryClient,
+//   QueryClientProvider,
+// } from '@tanstack/react-query'
+
 import Root from './Layout/Root/Root';
 import ErrorPage from './Layout/ErrorPage/ErrorPage';
 import Login from './RegisterComponent/Login/Login';
@@ -22,6 +28,7 @@ import Mercedes from './Layout/CarCollections/Mercedes';
 import Tesla from './Layout/CarCollections/Tesla';
 import Honda from './Layout/CarCollections/Honda';
 import AllCars from './Layout/CarCollections/AllCars';
+import UpdateDetails from './Layout/CarCollections/UpdateDetails';
 
 const router = createBrowserRouter([
   {
@@ -60,8 +67,12 @@ const router = createBrowserRouter([
       {
         path: '/allcars',
         element: <PrivetRout><AllCars></AllCars></PrivetRout>,
-        loader: () => fetch('http://localhost:3000/cars').then((res) => res.json()),
-
+        loader: () => fetch('https://car-hat-server-m8fcq7q3q-md-rokon-uzzamans-projects.vercel.app/cars').then((res) => res.json()),
+      },
+      {
+        path: '/updateCar/:id',
+        element: <PrivetRout><UpdateDetails></UpdateDetails></PrivetRout>,
+        loader: ({ params }) => fetch(`https://car-hat-server-m8fcq7q3q-md-rokon-uzzamans-projects.vercel.app/cars${params.id}`).then((res) => res.json()),
       },
       {
         path: '/bmw',
@@ -87,19 +98,20 @@ const router = createBrowserRouter([
         path: '/honda',
         element: <Honda> </Honda>
       },
-      {
-        path: 'cars/:id',
-        element: <h1>Car</h1>
-      }
     ],
   },
 
 ]);
 
+
+// const queryClient = new QueryClient();
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    {/* <QueryClientProvider client={queryClient}> */}
     <AuthProvider>
       <RouterProvider router={router} />
     </AuthProvider>
-  </React.StrictMode>,
+    {/* </QueryClientProvider> */}
+  </React.StrictMode >,
 )

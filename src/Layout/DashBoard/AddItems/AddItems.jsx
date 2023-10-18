@@ -24,7 +24,7 @@ const AddItems = () => {
             car_photo
         };
 
-        fetch('http://localhost:3000/addItems', {
+        fetch('https://car-hat-server-m8fcq7q3q-md-rokon-uzzamans-projects.vercel.app/cars', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
