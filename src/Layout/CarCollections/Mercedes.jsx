@@ -15,7 +15,7 @@ const Mercedes = () => {
     }, []);
 
     return (
-        <div className='m-10 grid sm:grid-cols-2 grid-cols-4'>
+        <div className='m-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4'>
             {bmwData.map(item => (
                 <div className='w-96 max-w-sm' key={item._id}>
 

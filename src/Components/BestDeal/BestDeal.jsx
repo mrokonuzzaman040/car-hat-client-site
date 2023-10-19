@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Toyota from '../../Layout/CarCollections/Toyota';
 
 const BestDeal = () => {
     return (
@@ -15,6 +16,7 @@ const BestDeal = () => {
                             <p>Listing</p>
                         </div>
                     </Link>
+                    <Toyota></Toyota>
                 </div>
             </div>
         </div>

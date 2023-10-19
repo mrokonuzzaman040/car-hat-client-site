@@ -76,27 +76,27 @@ const router = createBrowserRouter([
       },
       {
         path: '/bmw',
-        element: <BMW></BMW>
+        element: <PrivetRout> <BMW></BMW></PrivetRout>
       },
       {
-        path: '/toyota',
-        element: <Toyota></Toyota>
+        path: '/audi',
+        element: <PrivetRout><Toyota></Toyota></PrivetRout>
       },
       {
         path: '/ford',
-        element: <Ford></Ford>
+        element: <PrivetRout><Ford></Ford></PrivetRout>
       },
       {
         path: "/mercedes",
-        element: <Mercedes></Mercedes>
+        element: <PrivetRout><Mercedes></Mercedes></PrivetRout>
       },
       {
         path: '/tesla',
-        element: <Tesla></Tesla>
+        element: <PrivetRout><Tesla></Tesla></PrivetRout>
       },
       {
         path: '/honda',
-        element: <Honda> </Honda>
+        element: <PrivetRout> <Honda> </Honda> </PrivetRout>
       },
     ],
   },

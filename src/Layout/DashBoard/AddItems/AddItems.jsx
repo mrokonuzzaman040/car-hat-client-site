@@ -24,14 +24,14 @@ const AddItems = () => {
             car_photo
         };
 
-        fetch('https://car-hat-server-m8fcq7q3q-md-rokon-uzzamans-projects.vercel.app/cars', {
+        fetch('https://car-hat-server-mrokonuzzaman040-md-rokon-uzzamans-projects.vercel.app/cars', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(newCar)
         }).then(() => {
-            alert('Coffee added successfully');
+            alert('Product added successfully');
             form.reset();
         })
     }
@@ -71,7 +71,7 @@ const AddItems = () => {
                             <label className="input-group">
                                 <select type="text" name="brand_name" placeholder="" className="input input-bordered w-full">
                                     <option value="BMW">BMW</option>
-                                    <option value="Toyota">Toyota</option>
+                                    <option value="Audi">Audi</option>
                                     <option value="Ford">Ford</option>
                                     <option value="Mercedes">Mercedes</option>
                                     <option value="Tesla">Tesla</option>

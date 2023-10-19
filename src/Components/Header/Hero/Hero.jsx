@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { SiBmw, SiToyota, SiFord, SiMercedes, SiTesla, SiHonda, SiKia } from 'react-icons/si';
+import { SiBmw, SiAudi, SiFord, SiMercedes, SiTesla, SiHonda, SiKia } from 'react-icons/si';
 
 const Hero = () => {
     return (
@@ -16,7 +16,7 @@ const Hero = () => {
                                 <Link to={'/bmw'}><SiBmw></SiBmw></Link>
                             </div>
                             <div className="">
-                                <Link to={'/toyota'}><SiToyota></SiToyota></Link>
+                                <Link to={'/audi'}><SiAudi></SiAudi></Link>
                             </div>
                             <div className="">
                                 <Link to={'/ford'}><SiFord></SiFord></Link>
