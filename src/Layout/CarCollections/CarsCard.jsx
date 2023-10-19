@@ -21,7 +21,7 @@ const CarsCard = ({ cars }) => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`https://car-hat-server-m8fcq7q3q-md-rokon-uzzamans-projects.vercel.app/cars/${_id}`, {
+                fetch(`https://car-hat-server-mrokonuzzaman040-md-rokon-uzzamans-projects.vercel.app/cars/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -32,8 +32,8 @@ const CarsCard = ({ cars }) => {
                                 'Your Car has been deleted.',
                                 'success'
                             )
-                            // const remaining = cars.filter(car => car._id !== _id);
-                            // setCars(remaining);
+                            const remaining = cars.filter(car => car._id !== _id);
+                            setCars(remaining);
                         }
                     })
             }
@@ -54,7 +54,7 @@ const CarsCard = ({ cars }) => {
                 <div className="card-actions justify-end">
                     <div className="btn-group btn-group-vertical space-y-4">
                         <button className="btn">View</button>
-                        <Link to={`updateCoffee/${_id}`}>
+                        <Link to={`updateCar/${_id}`}>
                             <button className="btn">Edit</button>
                         </Link>
                         <button

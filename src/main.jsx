@@ -67,12 +67,12 @@ const router = createBrowserRouter([
       {
         path: '/allcars',
         element: <PrivetRout><AllCars></AllCars></PrivetRout>,
-        loader: () => fetch('https://car-hat-server-m8fcq7q3q-md-rokon-uzzamans-projects.vercel.app/cars').then((res) => res.json()),
+        loader: () => fetch('https://car-hat-server-mrokonuzzaman040-md-rokon-uzzamans-projects.vercel.app/cars').then((res) => res.json()),
       },
       {
-        path: '/updateCar/:id',
+        path: 'updateCar/:id',
         element: <UpdateDetails></UpdateDetails>,
-        loader: ({ params }) => fetch(`https://car-hat-server-m8fcq7q3q-md-rokon-uzzamans-projects.vercel.app/cars/${params.id}`),
+        loader: ({ params }) => fetch(`https://car-hat-server-mrokonuzzaman040-md-rokon-uzzamans-projects.vercel.app/cars/${params.id}`),
       },
       {
         path: '/bmw',
