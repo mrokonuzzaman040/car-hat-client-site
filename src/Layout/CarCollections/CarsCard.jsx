@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 const CarsCard = ({ cars }) => {
 
     const { _id, car_name, technology, brand_name, car_photo, car_price, car_description, car_rating } = cars;
+    const id = _id;
 
     const [car, setCars] = useState([])
 
@@ -21,7 +22,7 @@ const CarsCard = ({ cars }) => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`https://car-hat-server-mrokonuzzaman040-md-rokon-uzzamans-projects.vercel.app/cars/${_id}`, {
+                fetch(`http://localhost:3000/cars/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -41,6 +42,7 @@ const CarsCard = ({ cars }) => {
     }
 
 
+
     return (
         <div className="card card-side bg-base-100 shadow-xl my-6 gap-5 items-center">
             <figure><img className="w-80" src={car_photo} alt="Cars" /></figure>
@@ -53,8 +55,8 @@ const CarsCard = ({ cars }) => {
                 </div>
                 <div className="card-actions justify-end">
                     <div className="btn-group btn-group-vertical space-y-4">
-                        <button className="btn">View</button>
-                        <Link to={`updateCar/${_id}`}>
+                        <Link to={`/carDetails/${id}`} className="btn">View</Link>
+                        <Link to={`/updateCar/${id}`}>
                             <button className="btn">Edit</button>
                         </Link>
                         <button

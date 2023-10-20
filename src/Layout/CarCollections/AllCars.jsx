@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import CarsCard from './CarsCard';
 
+
 const AllCars = ({ }) => {
     const cars = useLoaderData();
     return (
@@ -11,6 +12,7 @@ const AllCars = ({ }) => {
             {cars.map(car => (
                 <CarsCard key={car._id} cars={car}></CarsCard>
             ))}
+           
 
         </div>
     );

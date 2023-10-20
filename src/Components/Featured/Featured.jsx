@@ -7,7 +7,7 @@ const Featured = () => {
             <div className="">
                 <h2 className='text-orange-500 font-semibold'>Handy picked</h2>
                 <p className='font-bold text-5xl'> Featured Listings</p>
-                <BMW></BMW>
+                {/* <BMW></BMW> */}
             </div>
         </div>
     );

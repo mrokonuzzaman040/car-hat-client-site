@@ -29,6 +29,7 @@ import Tesla from './Layout/CarCollections/Tesla';
 import Honda from './Layout/CarCollections/Honda';
 import AllCars from './Layout/CarCollections/AllCars';
 import UpdateDetails from './Layout/CarCollections/UpdateDetails';
+import CarDetails from './Layout/CarCollections/CarDetails';
 
 const router = createBrowserRouter([
   {
@@ -41,12 +42,8 @@ const router = createBrowserRouter([
         element: <Home></Home>,
       },
       {
-        path: "/about",
-        element: <h1>About</h1>,
-      },
-      {
-        path: "/contact",
-        element: <h1>Contact</h1>,
+        path: "/myCart",
+        element: <h1>myCart</h1>,
       },
       {
         path: "/login",
@@ -67,12 +64,12 @@ const router = createBrowserRouter([
       {
         path: '/allcars',
         element: <PrivetRout><AllCars></AllCars></PrivetRout>,
-        loader: () => fetch('https://car-hat-server-mrokonuzzaman040-md-rokon-uzzamans-projects.vercel.app/cars').then((res) => res.json()),
+        loader: () => fetch('http://localhost:3000/cars').then((res) => res.json()),
       },
       {
-        path: 'updateCar/:id',
-        element: <UpdateDetails></UpdateDetails>,
-        loader: ({ params }) => fetch(`https://car-hat-server-mrokonuzzaman040-md-rokon-uzzamans-projects.vercel.app/cars/${params.id}`),
+        path: '/updateCar/:id',
+        element:<PrivetRout><UpdateDetails></UpdateDetails></PrivetRout>,
+        loader: ({ params }) => fetch(`http://localhost:3000/cars/${params.id}`),
       },
       {
         path: '/bmw',
@@ -98,6 +95,11 @@ const router = createBrowserRouter([
         path: '/honda',
         element: <PrivetRout> <Honda> </Honda> </PrivetRout>
       },
+      {
+        path: '/carDetails/:id',
+        element: <PrivetRout><CarDetails></CarDetails></PrivetRout>,
+        loader: ({ params }) => fetch(`http//localhost:3000/cars/${params.id}`),
+      }
     ],
   },
 
