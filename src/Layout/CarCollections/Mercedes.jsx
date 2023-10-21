@@ -5,7 +5,7 @@ const Mercedes = () => {
     const [bmwData, setBmwData] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:3000/cars')
+        fetch('https://car-hat-server.vercel.app/cars')
             .then(response => response.json())
             .then(data => {
                 const bmwData = data.filter(item => item.brand_name === 'Mercedes');
@@ -17,7 +17,7 @@ const Mercedes = () => {
     return (
         <div className='m-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4'>
             {bmwData.map(item => (
-                <div className='w-96 max-w-sm' key={item._id}>
+                <div className='lg:w-4/3' key={item._id}>
 
                     <div className=" bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                         <Link href="#">

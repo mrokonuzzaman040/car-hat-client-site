@@ -6,7 +6,7 @@ const BMW = () => {
     const [bmwData, setBmwData] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:3000/cars')
+        fetch('https://car-hat-server.vercel.app/cars')
             .then(response => response.json())
             .then(data => {
                 const bmwData = data.filter(item => item.brand_name === 'BMW');
@@ -15,33 +15,12 @@ const BMW = () => {
             .catch(error => console.error(error));
     }, []);
 
-
-    //Slider Style
-    const FgSlide = ({ seed }) => (
-        <img
-          style={{
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-          }}
-          src={`https://solvent-tune.000webhostapp.com/images/${seed}.jpg`}
-          alt={`Placeholder ${seed}`}
-        />
-      );
+    
 
     return (
-        <div className="">
-            <div className="flex flex-row justify-center">
-            {/* <HeroCarousel interval={80000} >
-                <FgSlide seed={1} />
-                <FgSlide seed={2} />
-                <FgSlide seed={3} />
-                <FgSlide seed={4} />
-            </HeroCarousel> */}
-            </div>
-           
+        <div className="">           
         <div className='m-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3'>
-            {bmwData.map(item => (
+            { bmwData.length ==0 ? <h2>No data Found</h2>:bmwData.map(item => (
                 <div className='w-96 max-w-sm' key={item._id}>
 
                     <div className=" bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">

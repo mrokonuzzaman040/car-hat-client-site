@@ -16,7 +16,7 @@ const UpdateDetails = () => {
     // const [cart, setCart] = useState([])
 
     // useEffect(() => {
-    //     fetch('http://localhost:3000/cars')
+    //     fetch('https://car-hat-server.vercel.app/cars')
     //         .then(res => res.json())
     //         .then(data => {
     //           setCart(data)
@@ -48,7 +48,7 @@ const UpdateDetails = () => {
             car_photo }
 
         // send data to the server
-        fetch(`http://localhost:3000/cars/${_id}`, {
+        fetch(`https://car-hat-server.vercel.app/cars/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

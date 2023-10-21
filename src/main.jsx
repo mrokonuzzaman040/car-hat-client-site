@@ -45,7 +45,7 @@ const router = createBrowserRouter([
       {
         path: "/myCart",
         element: <PrivetRout><MyCart></MyCart></PrivetRout>,
-        loader: () => fetch(`http://localhost:3000/user/`).then((res) => res.json()),
+        loader: () => fetch(`https://car-hat-server.vercel.app/user/`).then((res) => res.json()),
       },
       {
         path: "/login",
@@ -66,12 +66,12 @@ const router = createBrowserRouter([
       {
         path: '/allcars',
         element: <PrivetRout><AllCars></AllCars></PrivetRout>,
-        loader: () => fetch('http://localhost:3000/cars').then((res) => res.json()),
+        loader: () => fetch('https://car-hat-server.vercel.app/cars').then((res) => res.json()),
       },
       {
         path: '/updateCar/:id',
         element:<PrivetRout><UpdateDetails></UpdateDetails></PrivetRout>,
-        loader: ({ params }) => fetch(`http://localhost:3000/cars/${params.id}`),
+        loader: ({ params }) => fetch(`https://car-hat-server.vercel.app/cars/${params.id}`),
       },
       {
         path: '/bmw',
@@ -100,7 +100,7 @@ const router = createBrowserRouter([
       {
         path: '/carDetails/:id',
         element: <PrivetRout><CarDetails></CarDetails></PrivetRout>,
-        loader: ({ params }) => fetch(`http://localhost:3000/cars/${params.id}`),
+        loader: ({ params }) => fetch(`https://car-hat-server.vercel.app/cars/${params.id}`),
       }
     ],
   },

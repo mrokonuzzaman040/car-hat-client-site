@@ -10,15 +10,15 @@ const HowToBuy = () => {
 
                 <div className="flex justify-around items-center">
                     <div className="">
-                        <p className="-center flex gap-10 text-white"> <FcCheckmark></FcCheckmark> Best Deal</p>
-                        <p className="-center flex gap-10 text-white"> <FcCheckmark></FcCheckmark>sell your car
+                        <p className="-center flex gap-10 text-black"> <FcCheckmark></FcCheckmark> Best Deal</p>
+                        <p className="-center flex gap-10 text-black"> <FcCheckmark></FcCheckmark>sell your car
                         </p>
-                        <p className="-center flex gap-10 text-white"> <FcCheckmark></FcCheckmark> car book values</p>
-                        <p className="-center flex gap-10 text-white"> <FcCheckmark></FcCheckmark> car dealers</p>
-                        <p className="-center flex gap-10 text-white"> <FcCheckmark></FcCheckmark> compare prices</p>
+                        <p className="-center flex gap-10 text-black"> <FcCheckmark></FcCheckmark> car book values</p>
+                        <p className="-center flex gap-10 text-black"> <FcCheckmark></FcCheckmark> car dealers</p>
+                        <p className="-center flex gap-10 text-black"> <FcCheckmark></FcCheckmark> compare prices</p>
                     </div>
                     <div className="">
-                        <button className='btn bg-orange-500 text-white border-transparent hover:bg-transparent hover:text-orange-500 hover:cursor-pointer'>Learn More</button>
+                        <button className='btn bg-orange-500 text-black border-transparent hover:bg-transparent hover:text-orange-500 hover:cursor-pointer'>Learn More</button>
                     </div>
                 </div>
 

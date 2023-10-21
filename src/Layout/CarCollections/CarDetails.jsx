@@ -18,7 +18,7 @@ const userId = user?.uid;
 const userEmail = user?.email;
 
 const addToCart = async() => {
-   fetch('http://localhost:3000/user/cart', {
+   fetch('https://car-hat-server.vercel.app/user/cart', {
          method: 'POST',
          headers: {
               'Content-Type': 'application/json'
