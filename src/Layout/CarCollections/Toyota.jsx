@@ -16,7 +16,7 @@ const Toyota = () => {
 
     return (
         <div className='m-10 grid sm:grid-cols-2 grid-cols-4'>
-            {bmwData.map(item => (
+            {bmwData.length ==0 ? <h2>No data Found</h2>: bmwData.map(item => (
                 <div className='w-96 max-w-sm' key={item._id}>
 
                     <div className=" bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">

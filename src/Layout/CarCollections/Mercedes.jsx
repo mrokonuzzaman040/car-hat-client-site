@@ -16,7 +16,7 @@ const Mercedes = () => {
 
     return (
         <div className='m-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4'>
-            {bmwData.map(item => (
+            {bmwData.length ==0 ? <h2>No data Found</h2>:bmwData.map(item => (
                 <div className='lg:w-4/3' key={item._id}>
 
                     <div className=" bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
