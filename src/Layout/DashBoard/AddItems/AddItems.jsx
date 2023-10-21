@@ -31,17 +31,19 @@ const AddItems = () => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(newCar)
-        }).then(() => {
-            if(data.insertedId){
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Success',
-                    text: 'Product added to cart successfully', 
-                    confirmButtonText: 'cool'
-                })
-            }
-            form.reset();
         })
+        .then(res => res.json())
+    .then(data => {
+        console.log(data);
+        if(data.insertedId){
+            Swal.fire({
+                icon: 'success',
+                title: 'Success',
+                text: 'Product added to cart successfully', 
+                confirmButtonText: 'Close'
+            })
+        }
+    })
     }
     return (
         <div>
