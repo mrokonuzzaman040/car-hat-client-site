@@ -10,12 +10,27 @@ const CarDetails = () => {
 const cars = useLoaderData();
 
 const {_id,car_name, car_photo,technology ,brand_name,car_price,car_description,car_rating} = cars;
-console.log(_id);
+
 
 const { user } = useContext(AuthContex);
 const productId = _id;
 const userId = user?.uid;
 const userEmail = user?.email;
+
+const details = {
+    productId,
+    userId,
+    userEmail,
+    car_name,
+    car_photo,
+    technology,
+    brand_name,
+    car_price,
+    car_description,
+    car_rating
+
+}
+
 
 const addToCart = async() => {
    fetch('https://car-hat-server.vercel.app/user/cart', {
@@ -23,7 +38,7 @@ const addToCart = async() => {
          headers: {
               'Content-Type': 'application/json'
          },
-         body: JSON.stringify({userId, userEmail, productId})
+         body: JSON.stringify({details})
     }) 
     .then(res => res.json())
     .then(data => {

@@ -1,4 +1,5 @@
 import React from 'react';
+import Swal from "sweetalert2";
 
 const AddItems = () => {
     const handleAddCars = (e) => {
@@ -31,7 +32,14 @@ const AddItems = () => {
             },
             body: JSON.stringify(newCar)
         }).then(() => {
-            alert('Product added successfully');
+            if(data.insertedId){
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success',
+                    text: 'Product added to cart successfully', 
+                    confirmButtonText: 'cool'
+                })
+            }
             form.reset();
         })
     }
