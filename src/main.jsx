@@ -30,6 +30,7 @@ import Honda from './Layout/CarCollections/Honda';
 import AllCars from './Layout/CarCollections/AllCars';
 import UpdateDetails from './Layout/CarCollections/UpdateDetails';
 import CarDetails from './Layout/CarCollections/CarDetails';
+import MyCart from './Layout/DashBoard/MyCart/MyCart';
 
 const router = createBrowserRouter([
   {
@@ -43,7 +44,8 @@ const router = createBrowserRouter([
       },
       {
         path: "/myCart",
-        element: <h1>myCart</h1>,
+        element: <PrivetRout><MyCart></MyCart></PrivetRout>,
+        loader: () => fetch(`http://localhost:3000/user/`).then((res) => res.json()),
       },
       {
         path: "/login",
@@ -98,7 +100,7 @@ const router = createBrowserRouter([
       {
         path: '/carDetails/:id',
         element: <PrivetRout><CarDetails></CarDetails></PrivetRout>,
-        loader: ({ params }) => fetch(`http//localhost:3000/cars/${params.id}`),
+        loader: ({ params }) => fetch(`http://localhost:3000/cars/${params.id}`),
       }
     ],
   },

@@ -6,7 +6,7 @@ const Ford = () => {
     const [bmwData, setBmwData] = useState([]);
 
     useEffect(() => {
-        fetch('https://car-hat-server-mrokonuzzaman040-md-rokon-uzzamans-projects.vercel.app/cars')
+        fetch('http://localhost:3000/cars')
             .then(response => response.json())
             .then(data => {
                 const bmwData = data.filter(item => item.brand_name === 'Ford');

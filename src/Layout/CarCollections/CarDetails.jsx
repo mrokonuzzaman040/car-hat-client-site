@@ -3,26 +3,41 @@ import { Link, useLoaderData, useParams } from 'react-router-dom';
 import { BiLeftArrowAlt } from "react-icons/bi";
 import axios from 'axios';
 import { AuthContex } from '../../Auth/AuthProvider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const CarDetails = () => {
+    const { id } = useParams();
 const cars = useLoaderData();
 
 const {_id,car_name, car_photo,technology ,brand_name,car_price,car_description,car_rating} = cars;
+console.log(_id);
 
 const { user } = useContext(AuthContex);
+const productId = _id;
+const userId = user?.uid;
+const userEmail = user?.email;
 
-
-const addToCart = async(carId) => {
-    try {
-        const res = await axios.post(`http://localhost:3000/addtocart/${user.uid}`, {
-            carId
-        })
-        console.log(res.data);
-    } catch (error) {
-        console.log(error);
-    }
-}   
-
+const addToCart = async() => {
+   fetch('http://localhost:3000/user/cart', {
+         method: 'POST',
+         headers: {
+              'Content-Type': 'application/json'
+         },
+         body: JSON.stringify({userId, userEmail, productId})
+    }) 
+    .then(res => res.json())
+    .then(data => {
+        console.log(data);
+        if(data.insertedId){
+            Swal.fire({
+                icon: 'success',
+                title: 'Success',
+                text: 'Product added to cart successfully', 
+                confirmButtonText: 'cool'
+            })
+        }
+    })
+}
     return (
         <div>
             <div className='lg:p-10 p-4 mx-auto w-full max-w-screen-xl'>
@@ -34,7 +49,7 @@ const addToCart = async(carId) => {
                         <h2 className='text-orange-500 font-bold ml-10 text-4xl'>{car_price}</h2>
                       </div>
                       <div className="">
-                        <button onClick={()=> {addToCart(_id)}} className='btn bg-orange-500 text-white hover: bg-transparent hover:text-orange-500'>Add to Cart</button>
+                        <button onClick={()=> addToCart()} className='btn bg-orange-500 text-white hover: bg-transparent hover:text-orange-500'>Add to Cart</button>
                       </div>
                         
                     </div>
