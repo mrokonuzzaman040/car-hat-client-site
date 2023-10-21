@@ -45,7 +45,7 @@ const router = createBrowserRouter([
       {
         path: "/myCart",
         element: <PrivetRout><MyCart></MyCart></PrivetRout>,
-        loader: () => fetch(`https://car-hat-server.vercel.app/user/`).then((res) => res.json()),
+        loader: () => fetch(`https://car-hat-server.vercel.app/cars/`).then((res) => res.json()),
       },
       {
         path: "/login",

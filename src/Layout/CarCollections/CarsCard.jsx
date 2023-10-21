@@ -4,10 +4,12 @@ import Swal from "sweetalert2";
 
 const CarsCard = ({ cars }) => {
 
+    const [car, setCars] = useState([])
     const { _id, car_name, technology, brand_name, car_photo, car_price, car_description, car_rating } = cars;
+    
+    
     const id = _id;
 
-    const [car, setCars] = useState([])
 
     const handleDelete = _id => {
 
